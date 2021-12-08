@@ -8,6 +8,7 @@ pipeline {
   stages {
     stage('verify the container image') {
       steps {
+        sh 'cosign version'
         sh 'cosign verify --key $COSIGN_PUBLIC_KEY ghcr.io/$IMAGE_NAME:$IMAGE_VERSION'
       }
     }
